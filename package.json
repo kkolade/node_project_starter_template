@@ -5,7 +5,8 @@
   "main": "server.js.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "vitest",
+    "start": "nodemon ./server.js --exec babel-node",
     "styles": "postcss ./app/public/styles/postcss/main.pcss -o ./app/public/styles/main.css -w"
   },
   "keywords": [],
@@ -15,8 +16,13 @@
   },
   "license": "MIT",
   "devDependencies": {
+    "@babel/cli": "^7.24.7",
+    "@babel/core": "^7.24.7",
+    "@babel/node": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
     "autoprefixer": "^10.4.19",
     "lost": "^9.0.2",
+    "nodemon": "^3.1.3",
     "postcss": "^8.4.38",
     "postcss-advanced-variables": "^4.0.0",
     "postcss-cli": "^11.0.0",
@@ -27,5 +33,14 @@
     "postcss-partial-import": "^4.1.0",
     "postcss-preset-env": "^9.5.14",
     "postcss-simple-vars": "^7.0.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-ejs-layouts": "^2.5.1",
+    "mongoose": "^8.4.1"
   }
 }
