@@ -3,8 +3,14 @@ import { Sequelize } from 'sequelize';
 
 dotenv.config();
 
+const databaseUrl = `postgres://${process.env.dbUserName}:${process.env.dbPassword}@${process.env.dbHost}:${process.env.dbPort}/${process.env.databaseName}`;
+
+if (!databaseUrl) {
+  throw new Error('databaseUrl is not defined in the environment variables');
+}
+
 // Database configuration
-const sequelize = new Sequelize(process.env.DATABASE_URL, {
+const sequelize = new Sequelize(databaseUrl, {
   host: 'localhost',
   dialect: 'postgres',
   logging: false, // Disable logging; default: console.log
