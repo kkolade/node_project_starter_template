@@ -5,12 +5,27 @@
   "main": "server.js.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "styles": "postcss ./app/public/styles/postcss/main.pcss -o ./app/public/styles/main.css -w"
   },
   "keywords": [],
   "author": {
     "name": "Kola Kolade",
     "email": "kolakolade@gmail.com"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "lost": "^9.0.2",
+    "postcss": "^8.4.38",
+    "postcss-advanced-variables": "^4.0.0",
+    "postcss-cli": "^11.0.0",
+    "postcss-functions": "^4.0.2",
+    "postcss-import": "^16.1.0",
+    "postcss-mixins": "^10.0.1",
+    "postcss-nested": "^6.0.1",
+    "postcss-partial-import": "^4.1.0",
+    "postcss-preset-env": "^9.5.14",
+    "postcss-simple-vars": "^7.0.1"
+  }
 }
