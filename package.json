@@ -1,0 +1,16 @@
+{
+  "name": "node_project_starter_template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Kola Kolade",
+    "email": "kolakolade@gmail.com"
+  },
+  "license": "MIT"
+}
