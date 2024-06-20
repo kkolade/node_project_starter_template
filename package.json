@@ -1,11 +1,12 @@
 {
-  "name": "node_project_starter_template",
+  "name": "ava_task",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
   "type": "module",
   "scripts": {
-    "start": "nodemon ./server.js --exec babel-node",
+    "start": "node ./www/start.js --exec babel-node",
+    "dev": "nodemon ./www/start.js --exec babel-node",
     "styles": "postcss ./app/public/styles/postcss/main.pcss -o ./app/public/styles/main.css -w",
     "test": "vitest",
     "lint": "npm run lint:js && npm run lint:css",
@@ -63,10 +64,9 @@
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "express": "^4.19.2",
+    "express-async-handler": "^1.2.0",
     "express-ejs-layouts": "^2.5.1",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.12.0",
-    "pg-hstore": "^2.3.4",
-    "sequelize": "^6.37.3"
+    "mongoose": "^8.4.0"
   }
 }

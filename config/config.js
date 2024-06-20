@@ -1,23 +1,26 @@
-import dotenv from 'dotenv';
-dotenv.config();
+import { config } from 'dotenv';
+import { dirname, sep } from 'node:path';
+import { fileURLToPath } from 'node:url';
 
-// Validate that required environment variables are provided
-const requiredEnvVars = [
-  'dbUserName',
-  'dbPassword',
-  'databaseName',
-  'dbHost',
-  'dbDialect',
-];
-requiredEnvVars.forEach((envVar) => {
-  if (!(envVar in process.env)) {
-    throw new Error(`Missing required environment variable: ${envVar}`);
-  }
-});
+// Load environment variables from .env file in the root directory
+// config({ path: '../../.env' });
+config({ path: new URL('../.env', import.meta.url).pathname });
 
-// Export the configuration object
-export default {
-  development: {
+console.log('PORT:', process.env.PORT);
+console.log('STATIC_DIR:', process.env.STATIC_DIR);
+
+// Resolve __dirname for ES modules
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const cfg = {
+  port: process.env.PORT || 3000,
+  dir: {
+    root: __dirname,
+    static: `${__dirname}${sep}${process.env.STATIC_DIR}${sep}`,
+    public: `${__dirname}${sep}${process.env.PUBLIC_DIR}${sep}`,
+    views: `${__dirname}${sep}${process.env.VIEWS_DIR}${sep}`,
+  },
+  db: {
     username: process.env.dbUserName,
     password: process.env.dbPassword,
     database: process.env.databaseName,
@@ -26,3 +29,5 @@ export default {
     // Add other configuration options as needed
   },
 };
+
+export default cfg;
